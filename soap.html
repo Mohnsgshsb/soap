@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صابون الجلسرين اليدوي - عروض احترافية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2a6b5e;
+            --secondary: #f8f3e9;
+            --accent: #d4a86a;
+            --text: #333333;
+            --light: #ffffff;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a4a3e);
+            color: var(--light);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(42, 107, 94, 0.8), rgba(42, 107, 94, 0.9)), url('https://placeholder-image-service.onrender.com/image/1200x600?prompt=Handmade%20glycerin%20soaps%20arranged%20elegantly%20on%20a%20wooden%20table%20with%20natural%20lighting&id=hero-img');
+            background-size: cover;
+            background-position: center;
+            color: var(--light);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c0955a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .soaps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .soap-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .soap-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .soap-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .soap-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .soap-card:hover .soap-image img {
+            transform: scale(1.05);
+        }
+        
+        .soap-content {
+            padding: 1.5rem;
+        }
+        
+        .soap-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .soap-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .soap-price {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .soap-details {
+            display: none;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .soap-details.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .soap-details-header {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .soap-details-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .soap-details-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .soap-details-info {
+            flex: 2;
+        }
+        
+        .soap-details-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .soap-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature {
+            background-color: var(--secondary);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature i {
+            color: var(--accent);
+        }
+        
+        .about {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            padding: 1.5rem;
+            background-color: var(--secondary);
+            border-radius: 10px;
+        }
+        
+        .step i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 3rem 2rem 1.5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--accent);
+            color: var(--light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .soap-details-header {
+                flex-direction: column;
+            }
+            
+            .soap-details-image {
+                margin-bottom: 1rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-soap"></i>
+                <h1>صابون الجلسرين اليدوي</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>صابون جلسرين طبيعي مصنوع يدوياً</h2>
+            <p>اكتشف مجموعة الصابون الفاخرة المصنوعة بعناية من أفضل المكونات الطبيعية. كل قطعة فريدة وتقدم تجربة استثنائية لعناية بالبشرة.</p>
+            <a href="#products" class="btn">استكشف المنتجات</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container" id="products">
+        <div class="section-title">
+            <h2>منتجاتنا المميزة</h2>
+        </div>
+        
+        <div class="soaps-grid">
+            <!-- Soap 1 -->
+            <div class="soap-card" onclick="showSoapDetails(1)">
+                <div class="soap-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Handmade%20lavender%20glycerin%20soap%20with%20purple%20swirls%20and%20dried%20lavender%20flowers%20on%20a%20marble%20background&id=soap1" alt="صابون اللافندر الطبيعي مع زهور اللافندر المجففة">
+                </div>
+                <div class="soap-content">
+                    <h3>صابون اللافندر الطبيعي</h3>
+                    <p>غني بزيت اللافندر العطري، مثالي للاسترخاء والعناية بالبشرة الحساسة</p>
+                    <div class="soap-price">45 جنيه</div>
+                    <button class="btn">عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <!-- Soap 2 -->
+            <div class="soap-card" onclick="showSoapDetails(2)">
+                <div class="soap-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Refreshing%20mint%20glycerin%20soap%20with%20green%20swirls%20and%20fresh%20mint%20leaves%20on%20a%20wooden%20board&id=soap2" alt="صابون النعناع المنعش مع أوراق النعناع الطازجة">
+                </div>
+                <div class="soap-content">
+                    <h3>صابون النعناع المنعش</h3>
+                    <p>صابون منعش بنكهة النعناع الطبيعية، ينشط البشرة ويجعلها متألقة</p>
+                    <div class="soap-price">42 جنيه</div>
+                    <button class="btn">عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <!-- Soap 3 -->
+            <div class="soap-card" onclick="showSoapDetails(3)">
+                <div class="soap-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Honey%20and%20oatmeal%20glycerin%20soap%20with%20golden%20swirls%20and%20oat%20flakes%20on%20a%20natural%20background&id=soap3" alt="صابون العسل والشوفان مع رقائق الشوفان الطبيعية">
+                </div>
+                <div class="soap-content">
+                    <h3>صابون العسل والشوفان</h3>
+                    <p>مزيج مغذي من العسل الطبيعي والشوفان اللطيف على البشرة</p>
+                    <div class="soap-price">48 جنيه</div>
+                    <button class="btn">عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <!-- Soap 4 -->
+            <div class="soap-card" onclick="showSoapDetails(4)">
+                <div class="soap-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Zesty%20lemon%20and%20ginger%20glycerin%20soap%20with%20yellow%20swirls%20and%20ginger%20slices%20on%20a%20sunny%20background&id=soap4" alt="صابون الليمون والزنجبيل مع شرائح الزنجبيل الطازجة">
+                </div>
+                <div class="soap-content">
+                    <h3>صابون الليمون والزنجبيل</h3>
+                    <p>مزيج منعش من الليمون والزنجبيل لتنشيط البشرة وإضفاء النضارة</p>
+                    <div class="soap-price">40 جنيه</div>
+                    <button class="btn">عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <!-- Soap 5 -->
+            <div class="soap-card" onclick="showSoapDetails(5)">
+                <div class="soap-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Rose%20and%20chamomile%20glycerin%20soap%20with%20pink%20swirls%20and%20dried%20rose%20petals%20on%20a%20soft%20background&id=soap5" alt="صابون الورد والبابونج مع بتلات الورد المجففة">
+                </div>
+                <div class="soap-content">
+                    <h3>صابون الورد والبابونج</h3>
+                    <p>مهدئ للبشرة الحساسة بمزيج من عطر الورد وتأثير البابونج المهدئ</p>
+                    <div class="soap-price">50 جنيه</div>
+                    <button class="btn">عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <!-- Soap 6 -->
+            <div class="soap-card" onclick="showSoapDetails(6)">
+                <div class="soap-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Coconut%20and%20vanilla%20glycerin%20soap%20with%20white%20swirls%20and%20coconut%20shavings%20on%20a%20tropical%20background&id=soap6" alt="صابون جوز الهند والفانيليا مع قطع جوز الهند المجفف">
+                </div>
+                <div class="soap-content">
+                    <h3>صابون جوز الهند والفانيليا</h3>
+                    <p>ترطيب عميق مع عطر فانيليا دافئ وجوز الهند المغذي للبشرة</p>
+                    <div class="soap-price">46 جنيه</div>
+                    <button class="btn">عرض التفاصيل</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Soap Details Section -->
+        <div id="soap-details-container">
+            <!-- Details will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>عن صابون الجلسرين اليدوي</h2>
+            <p>نحن نصنع صابون الجلسرين الطبيعي بعناية فائقة باستخدام أفضل المكونات الطبيعية. كل قطعة صابون ننتجها تحمل توقيعنا المميز للجودة والاهتمام بالتفاصيل.</p>
+            <p>نؤمن بأن العناية بالبشرة يجب أن تكون تجربة فاخرة وممتعة، لذلك نبتكر تركيبات فريدة تلبي احتياجات بشرتك مع توفير تجربة حسية استثنائية.</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <i class="fas fa-seedling"></i>
+                    <h4>مكونات طبيعية</h4>
+                    <p>نستخدم فقط المكونات الطبيعية والعضوية في صناعة صابوننا</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h4>صناعة يدوية</h4>
+                    <p>كل قطعة صابون تُصنع يدوياً بعناية واهتمام بالتفاصيل</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-award"></i>
+                    <h4>جودة مضمونة</h4>
+                    <p>نضمن لك منتجات ذات جودة عالية تلبي توقعاتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن الشركة</h3>
+                <p>متخصصون في صناعة صابون الجلسرين الطبيعي واليدوي منذ عام 2015. نقدم منتجات عالية الجودة تحافظ على صحة بشرتك.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <p><a href="#home">الرئيسية</a></p>
+                <p><a href="#products">المنتجات</a></p>
+                <p><a href="#about">من نحن</a></p>
+                <p><a href="#contact">اتصل بنا</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>اتصل بنا</h3>
+                <p><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</p>
+                <p><i class="fas fa-phone"></i> 0100-123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@glycerin-soap.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2023 صابون الجلسرين اليدوي</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Soap data
+        const soapData = {
+            1: {
+                name: "صابون اللافندر الطبيعي",
+                image: "https://placeholder-image-service.onrender.com/image/600x400?prompt=Handmade%20lavender%20glycerin%20soap%20with%20purple%20swirls%20and%20dried%20lavender%20flowers%20on%20a%20marble%20background&id=soap1-detail",
+                description: "صابون غني بزيت اللافندر العطري، مثالي للاسترخاء والعناية بالبشرة الحساسة. يتميز برائحة مهدئة تساعد على تخفيف التوتر وتحسين جودة النوم.",
+                ingredients: "جلسرين نقي، زيت اللافندر العطري، زيت جوز الهند، زيت الزيتون، زيت الجوجوبا، فيتامين E",
+                benefits: ["ترطيب عميق للبشرة", "تهدئة البشرة الحساسة", "رائحة عطرية مهدئة", "تنعيم البشرة الجافة"],
+                price: "45 جنيه",
+                size: "100 جرام"
+            },
+            2: {
+                name: "صابون النعناع المنعش",
+                image: "https://placeholder-image-service.onrender.com/image/600x400?prompt=Refreshing%20mint%20glycerin%20soap%20with%20green%20swirls%20and%20fresh%20mint%20leaves%20on%20a%20wooden%20board&id=soap2-detail",
+                description: "صابون منعش بنكهة النعناع الطبيعية، ينشط البشرة ويجعلها متألقة. مثالي للاستخدام الصباحي لبدء يومك بنشاط وحيوية.",
+                ingredients: "جلسرين نقي، زيت النعناع العطري، زيت اللوز الحلو، زيت بذور العنب، فيتامين E، منثول طبيعي",
+                benefits: ["تنشيط الدورة الدموية", "تقليل المسام الواسعة", "إشراقة طبيعية للبشرة", "تخفيف الالتهابات الجلدية"],
+                price: "42 جنيه",
+                size: "100 جرام"
+            },
+            3: {
+                name: "صابون العسل والشوفان",
+                image: "https://placeholder-image-service.onrender.com/image/600x400?prompt=Honey%20and%20oatmeal%20glycerin%20soap%20with%20golden%20swirls%20and%20oat%20flakes%20on%20a%20natural%20background&id=soap3-detail",
+                description: "مزيج مغذي من العسل الطبيعي والشوفان اللطيف على البشرة. ينظف بلطف ويرطب بعمق دون أن يسبب الجفاف.",
+                ingredients: "جلسرين نقي، عسل طبيعي، شوفان مطحون، زيت اللوز، زيت الأفوكادو، فيتامين E",
+                benefits: ["ترطيب عميق للبشرة الجافة", "تقشير لطيف للبشرة", "تهدئة التهيجات الجلدية", "تغذية البشرة بالمكونات الطبيعية"],
+                price: "48 جنيه",
+                size: "110 جرام"
+            },
+            4: {
+                name: "صابون الليمون والزنجبيل",
+                image: "https://placeholder-image-service.onrender.com/image/600x400?prompt=Zesty%20lemon%20and%20ginger%20glycerin%20soap%20with%20yellow%20swirls%20and%20ginger%20slices%20on%20a%20sunny%20background&id=soap4-detail",
+                description: "مزيج منعش من الليمون والزنجبيل لتنشيط البشرة وإضفاء النضارة. مثالي للبشرة الدهنية والمختلطة.",
+                ingredients: "جلسرين نقي، زيت الليمون العطري، زيت الزنجبيل، زيت بذور اليقطين، فيتامين C، خلاصة الشاي الأخضر",
+                benefits: ["تنقية البشرة من الشوائب", "تحسين نضارة البشرة", "مضاد طبيعي للبكتيريا", "توازن إفرازات الزيوت"],
+                price: "40 جنيه",
+                size: "100 جرام"
+            },
+            5: {
+                name: "صابون الورد والبابونج",
+                image: "https://placeholder-image-service.onrender.com/image/600x400?prompt=Rose%20and%20chamomile%20glycerin%20soap%20with%20pink%20swirls%20and%20dried%20rose%20petals%20on%20a%20soft%20background&id=soap5-detail",
+                description: "مهدئ للبشرة الحساسة بمزيج من عطر الورد وتأثير البابونج المهدئ. يناسب جميع أنواع البشرة وخاصة الحساسة منها.",
+                ingredients: "جلسرين نقي، زيت الورد العطري، خلاصة البابونج، زيت بذور الورد، زيت الأركان، فيتامين E",
+                benefits: ["تهدئة البشرة الحساسة", "تقليل الاحمرار والتهيج", "ترطيب عميق دون انسداد المسام", "عطر ناعم ومريح"],
+                price: "50 جنيه",
+                size: "100 جرام"
+            },
+            6: {
+                name: "صابون جوز الهند والفانيليا",
+                image: "https://placeholder-image-service.onrender.com/image/600x400?prompt=Coconut%20and%20vanilla%20glycerin%20soap%20with%20white%20swirls%20and%20coconut%20shavings%20on%20a%20tropical%20background&id=soap6-detail",
+                description: "ترطيب عميق مع عطر فانيليا دافئ وجوز الهند المغذي للبشرة. يترك البشرة ناعمة كالحرير برائحة استوائية جميلة.",
+                ingredients: "جلسرين نقي، زيت جوز الهند، خلاصة الفانيليا، زيت النخيل، زيت السمسم، فيتامين E",
+                benefits: ["ترطيب مكثف للبشرة الجافة", "تغذية البشرة بمضادات الأكسدة", "عطر دافئ ومميز", "تنعيم البشرة الخشنة"],
+                price: "46 جنيه",
+                size: "100 جرام"
+            }
+        };
+
+        // Function to show soap details
+        function showSoapDetails(soapId) {
+            const soap = soapData[soapId];
+            const container = document.getElementById('soap-details-container');
+            
+            const detailsHTML = `
+                <div class="soap-details active" id="soap-details-${soapId}">
+                    <div class="soap-details-header">
+                        <div class="soap-details-image">
+                            <img src="${soap.image}" alt="${soap.name}">
+                        </div>
+                        <div class="soap-details-info">
+                            <h3>${soap.name}</h3>
+                            <p>${soap.description}</p>
+                            <div class="soap-price">${soap.price} - ${soap.size}</div>
+                            
+                            <div class="soap-features">
+                                ${soap.benefits.map(benefit => `
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>${benefit}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <h4>المكونات:</h4>
+                            <p>${soap.ingredients}</p>
+                            
+                            <button class="btn" onclick="closeSoapDetails(${soapId})">إغلاق</button>
+                            <button class="btn" style="background-color: var(--primary); margin-right: 10px;">اطلب الآن</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Close any open details first
+            const openDetails = document.querySelector('.soap-details.active');
+            if (openDetails) {
+                openDetails.classList.remove('active');
+                setTimeout(() => {
+                    openDetails.remove();
+                }, 500);
+            }
+            
+            // Add new details
+            container.innerHTML = detailsHTML;
+            
+            // Scroll to details
+            setTimeout(() => {
+                document.getElementById(`soap-details-${soapId}`).scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 100);
+        }
+
+        // Function to close soap details
+        function closeSoapDetails(soapId) {
+            const details = document.getElementById(`soap-details-${soapId}`);
+            if (details) {
+                details.classList.remove('active');
+                setTimeout(() => {
+                    details.remove();
+                }, 500);
+            }
+        }
+
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
